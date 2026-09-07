@@ -1,0 +1,5 @@
+import { additionalOdooExperience } from "@/data/professional";
+
+export function AdditionalOdooExperience() {
+  return <section className="bg-white py-20 sm:py-28" aria-labelledby="additional-title"><div className="mx-auto max-w-6xl px-6 lg:px-8"><div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr]"><div><p className="font-mono text-xs font-bold tracking-[0.16em] text-emerald-700 uppercase">Additional Odoo experience</p><h2 id="additional-title" className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-emerald-950 sm:text-4xl">Supporting work across the Odoo ecosystem.</h2><p className="mt-5 max-w-md text-sm leading-6 text-emerald-950/65">Additional customization, reporting, workflow, accounting, inventory, and technical maintenance experience.</p></div><div className="flex flex-wrap content-start gap-2">{additionalOdooExperience.map((item) => <span key={item} className="rounded-md border border-emerald-950/10 bg-[#f7f8f5] px-3 py-2 text-sm font-medium text-emerald-950/75">{item}</span>)}</div></div></div></section>;
+}
