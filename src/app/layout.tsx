@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Odoo / ERP Developer",
-  description: "Portfolio for an Odoo / ERP Developer.",
+  title: "Christian Oliver | Odoo / ERP Developer",
+  description: "Portfolio of Christian Oliver, an Odoo / ERP Developer.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
