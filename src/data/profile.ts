@@ -5,8 +5,8 @@ export const profile: Profile = {
   availability: "Open to freelance Odoo development opportunities",
   location: "East Jakarta, DKI Jakarta, Indonesia",
   profileImage: "/profil.jpg",
-  summary: "Odoo / ERP Developer experienced in building, customizing, and maintaining Odoo 14 solutions for real business requirements. Strong in Python, PostgreSQL, XML, QWeb, JavaScript, and the Odoo ORM, with experience across accounting, inventory, purchase, sales, reporting, approval processes, multi-company, and multi-currency operations.",
-  primaryExperience: ["Odoo 14", "Python", "PostgreSQL", "XML", "QWeb", "JavaScript", "Odoo ORM", "Git"],
+  summary: "Odoo / ERP Developer experienced in building, customizing, and maintaining Odoo solutions for real business requirements. Currently developing Texarium ERP on Odoo 18 Community. Strong in Python, PostgreSQL, XML, QWeb, JavaScript, and the Odoo ORM, with experience across accounting, inventory, purchase, sales, reporting, approval processes, multi-company, and multi-currency operations.",
+  primaryExperience: ["Odoo 18", "Python", "PostgreSQL", "XML", "QWeb", "JavaScript", "Odoo ORM", "Git"],
   functionalAreas: ["Accounting", "Inventory / Warehouse", "Purchase", "Sales", "Approval Workflow", "Multi-company", "Multi-currency", "Reporting", "Product / Vendor Management"],
   contacts: {
     phone: "085880036506",

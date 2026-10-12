@@ -17,16 +17,16 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Highlights />
-        <Experience />
-        <Skills />
         <Projects />
         <section className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
-          <h2 className="text-3xl font-bold">Texorium ERP · Odoo 18</h2>
+          <h2 className="text-3xl font-bold">Texarium ERP · Odoo 18</h2>
           <p className="mt-3 text-slate-600">Explore custom approvals, Stock Ledger, finance operations and a complete procurement workflow.</p>
-          <a href="/texorium" className="mt-5 inline-block font-semibold text-emerald-700">Watch the ERP walkthroughs →</a>
+          <a href="/texorium" className="mt-5 inline-block font-semibold text-indigo-600">Watch the ERP walkthroughs →</a>
         </section>
+        <About />
+        <Skills />
+        <Highlights />
+        <Experience />
         <AdditionalOdooExperience />
         <Services />
         <Education />

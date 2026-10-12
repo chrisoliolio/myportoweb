@@ -2,61 +2,309 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
-    slug: "multi-currency-payment-reconciliation", title: "Multi-Currency Payment & Reconciliation", category: "Accounting / Finance",
-    summary: "Custom Odoo payment workflow supporting partial payments, exchange-rate differences, FX gain/loss, bank charges, and multi-company validation.",
-    overview: "A custom Odoo Accounting workflow for vendor-bill payments where payment amounts, exchange rates, fees, and company-specific accounting rules require additional reconciliation handling.",
-    businessProblem: "Standard payment workflows did not fully support payment differences, custom exchange rates, bank fees, open partial payments, and correct multi-company accounting treatment.",
-    requirements: ["Partial payment support", "Keep Open versus Reconcile behavior", "Custom exchange-rate handling", "Automatic FX Gain / FX Loss calculation", "Bank administration fee handling", "Difference-account and multi-company validation", "Balanced journal entries"],
-    role: ["Analyzed payment and reconciliation requirements", "Designed the customization flow for payment differences and exchange rates", "Implemented backend business logic and accounting validation", "Debugged reconciliation and multi-company accounting behavior", "Performed validation and functional testing"],
-    solution: ["Extended the payment and reconciliation flow to support partial payments and distinct Keep Open versus Reconcile outcomes.", "Applied custom exchange-rate logic alongside automatic FX gain/loss and bank-fee treatment.", "Validated difference accounts and company ownership while keeping journal entries balanced."],
-    technicalAreas: ["account.payment.register", "account.payment", "account.move", "reconciliation logic", "journal entries", "Odoo ORM", "multi-currency", "multi-company"], tags: ["Odoo 14", "Python", "Accounting", "Multi-Currency", "PostgreSQL"], portfolioValue: ["Odoo Accounting", "financial business logic", "complex validation", "multi-currency journal-entry handling"], featured: true,
-    challenges: ["Keeping journal entries balanced across payment, fee, and exchange-rate scenarios", "Distinguishing payment-amount changes from exchange-rate changes", "Calculating FX gain or loss consistently", "Ensuring every account belongs to the correct company"], impact: ["Automated accounting treatment for supported payment scenarios", "Improved consistency in multi-currency reconciliation", "Kept partial payments available for further processing"],
+    "slug": "texarium-finance-operations",
+    "title": "Texarium \u00b7 Finance Operations & Bank Reconciliation",
+    "category": "Accounting / Finance",
+    "summary": "Cash advances, settlement, petty cash, expense reimbursement and bank reconciliation in Texarium, built on Odoo 18 Community.",
+    "overview": "Cash advances, settlement, petty cash, expense reimbursement and bank reconciliation in Texarium, built on Odoo 18 Community.",
+    "businessProblem": "Finance teams need controlled disbursements, traceable settlements and bank matching.",
+    "requirements": [
+      "Cash advance and full settlement",
+      "Petty cash funding and vouchers",
+      "Hierarchical approval",
+      "Native payments and bank matching"
+    ],
+    "role": [
+      "Separate finance models and integrate approval controls",
+      "Connect cash documents to native payments",
+      "Validate balanced journals and reconciled bank statement lines"
+    ],
+    "solution": [
+      "Dedicated transfer and outstanding accounts connect source documents to native bank payments.",
+      "Saved finance scenarios cover eight companies and branches."
+    ],
+    "technicalAreas": [
+      "account.payment",
+      "account.move",
+      "hr.expense.sheet",
+      "multi-company"
+    ],
+    "challenges": [
+      "Prevent duplicate payments",
+      "Preserve approval snapshots and company boundaries"
+    ],
+    "impact": [
+      "Persisted and verified forty reconciled payments across eight company and branch contexts."
+    ],
+    "tags": [
+      "Odoo 18 Community",
+      "Texarium",
+      "Python",
+      "PostgreSQL"
+    ],
+    "portfolioValue": [
+      "account.payment",
+      "account.move",
+      "hr.expense.sheet",
+      "multi-company"
+    ],
+    "featured": true,
+    "video": "07-texorium-finance"
   },
   {
-    slug: "receiving-control-dashboard", title: "Receiving Control Dashboard", category: "Inventory / Purchase / Dashboard",
-    summary: "Custom receiving-monitoring dashboard for incoming supplier deliveries using Purchase Orders and Incoming Pickings.", overview: "An operations dashboard that brings Purchase Orders and Incoming Pickings into one visual control board for monitoring supplier arrivals.", businessProblem: "Operations needed a visual control board to compare planned supplier arrival schedules with actual receiving activity.",
-    requirements: ["Supplier monitoring", "Planned versus actual arrival", "Monday–Saturday operational view", "Arrival-time monitoring", "Delay indicators", "Pagination", "Date filtering", "User timezone handling"],
-    role: ["Analyzed receiving-monitoring requirements", "Designed the dashboard flow and visual status rules", "Implemented backend data access and JSON endpoints", "Modified the Odoo client interface with JavaScript and QWeb", "Performed validation for date, arrival, and timezone behavior"],
-    solution: ["Combined Purchase Order planning data with Incoming Picking activity in a dedicated dashboard.", "Presented PLAN and ACT states with operational color rules for on-time, delayed, and outstanding receipts.", "Added date filtering, pagination, and user-timezone handling for a practical Monday–Saturday view."],
-    technicalAreas: ["stock.picking", "purchase.order", "custom client action", "JavaScript", "QWeb", "CSS", "Python", "controller / JSON endpoint", "Odoo ORM", "timezone handling"], tags: ["Odoo 14", "Python", "JavaScript", "QWeb", "Inventory"], portfolioValue: ["backend + frontend Odoo development", "operations dashboard development", "Purchase and Inventory integration", "business-oriented UI design"], featured: true,
-    challenges: ["Combining Purchase and Inventory data into a single operational view", "Determining planned versus actual arrival reliably", "Keeping arrival timestamps consistent with user timezones", "Presenting operational data quickly and clearly"], impact: ["Improved visibility of receiving operations", "Made planned and actual arrivals easier to compare", "Improved control over outstanding and delayed receipts"],
+    "slug": "texarium-operational-dashboards",
+    "title": "Texarium \u00b7 Purchase & Inventory Dashboards",
+    "category": "Purchase / Inventory / UI",
+    "summary": "Operational dashboards and a branded workspace for Texarium on Odoo 18 Community.",
+    "overview": "Operational dashboards and a branded workspace for Texarium on Odoo 18 Community.",
+    "businessProblem": "Operations need accessible purchasing and inventory information in a consistent workspace.",
+    "requirements": [
+      "Purchase overview",
+      "Inventory overview",
+      "Date filters",
+      "Responsive scrolling and branded navigation"
+    ],
+    "role": [
+      "Build custom dashboard actions",
+      "Integrate operational data and navigation",
+      "Customize login, sidebar and selectable themes"
+    ],
+    "solution": [
+      "Purchase and Inventory dashboards expose operational summaries.",
+      "A custom login and shared UI provide a consistent Texarium workspace."
+    ],
+    "technicalAreas": [
+      "OWL",
+      "JavaScript",
+      "XML",
+      "SCSS",
+      "Odoo ORM"
+    ],
+    "challenges": [
+      "Keep dashboard data company scoped",
+      "Support long pages and shared navigation"
+    ],
+    "impact": [
+      "Recorded dashboard walkthroughs and validated browser rendering."
+    ],
+    "tags": [
+      "Odoo 18 Community",
+      "Texarium",
+      "Python",
+      "PostgreSQL"
+    ],
+    "portfolioValue": [
+      "OWL",
+      "JavaScript",
+      "XML",
+      "SCSS",
+      "Odoo ORM"
+    ],
+    "featured": true,
+    "video": "02-texorium-dashboards"
   },
   {
-    slug: "multi-uom-inventory-stock-valuation", title: "Multi-UoM Inventory & Stock Valuation", category: "Inventory / Warehouse / Valuation",
-    summary: "Customized inventory processes for multiple units of measure, conversion ratios, lot/UoM counting, and stock valuation adjustments.", overview: "An Odoo Inventory customization for products handled across different operational units, including lot-based counting and FIFO valuation considerations.", businessProblem: "Products could be purchased, counted, and processed using different operational units, requiring conversion and valuation logic beyond the default workflow.",
-    requirements: ["Custom UoM ratio model", "Purchase UoM customization", "Fallback to default purchase UoM", "Lot + UoM inventory counting", "Separate inventory lines by lot/UoM", "Quantity conversion", "Rounding handling", "FIFO valuation adjustments"],
-    role: ["Analyzed UoM and inventory-counting requirements", "Designed product-ratio and conversion behavior", "Modified inventory models and valuation-related workflows", "Implemented validation for conversion and rounding", "Debugged stock and FIFO valuation behavior"],
-    solution: ["Added a custom product-ratio approach to support purchase and operational UoM handling.", "Kept inventory counts distinct by lot and UoM while converting quantities through defined ratios.", "Applied rounding and FIFO valuation considerations to preserve consistent inventory behavior."],
-    technicalAreas: ["product UoM", "stock.move", "stock.quant", "stock.valuation.layer", "FIFO", "inventory adjustments", "Odoo ORM", "Python", "PostgreSQL"], tags: ["Odoo 14", "Python", "Inventory", "FIFO", "PostgreSQL"], portfolioValue: ["deep inventory knowledge", "stock behavior customization", "conversion and valuation logic"], featured: true,
-    challenges: ["Converting quantities across operational units", "Handling quantity rounding", "Maintaining inventory consistency by lot and UoM", "Accounting for UoM effects in FIFO valuation"], impact: ["Improved control over multi-UoM inventory processes", "Improved traceability in lot and UoM-based counts", "Supported valuation adjustments aligned with operational units"],
+    "slug": "texarium-inventory-quality-control",
+    "title": "Texarium \u00b7 Inventory & Quality Control",
+    "category": "Inventory / Quality / Valuation",
+    "summary": "Controlled receipts, quality inspection, stock release, supplier returns and valuation in Texarium on Odoo 18.",
+    "overview": "Controlled receipts, quality inspection, stock release, supplier returns and valuation in Texarium on Odoo 18.",
+    "businessProblem": "Received goods need inspection before becoming available stock, with traceable rejected quantities.",
+    "requirements": [
+      "Quality hold location",
+      "Pass and reject quantities",
+      "Controlled release and supplier return",
+      "Stock valuation and accounting entries"
+    ],
+    "role": [
+      "Implement receipt and quality-control integration",
+      "Connect approved inspections to stock operations",
+      "Validate quantity and valuation through accounting"
+    ],
+    "solution": [
+      "The recorded procurement scenario receives twenty units, releases eighteen and returns two.",
+      "Native stock valuation remains connected to posted accounting entries."
+    ],
+    "technicalAreas": [
+      "stock.picking",
+      "stock.move",
+      "stock.valuation.layer",
+      "quality inspection"
+    ],
+    "challenges": [
+      "Keep receipt and return quantities consistent",
+      "Avoid counting receipt valuation again as purchase budget actual"
+    ],
+    "impact": [
+      "Verified ending quantity of eighteen and inventory value of IDR2,250,000."
+    ],
+    "tags": [
+      "Odoo 18 Community",
+      "Texarium",
+      "Python",
+      "PostgreSQL"
+    ],
+    "portfolioValue": [
+      "stock.picking",
+      "stock.move",
+      "stock.valuation.layer",
+      "quality inspection"
+    ],
+    "featured": true,
+    "video": "06-texorium-integrated-procurement"
   },
   {
-    slug: "dynamic-multi-level-approval-workflow", title: "Dynamic Multi-Level Approval Workflow", category: "Workflow Automation",
-    summary: "Reusable multi-level approval mechanisms with configurable approvers, sequences, minimum approvals, status tracking, timestamps, and feedback.", overview: "A reusable Odoo approval pattern for business documents that need configurable stages, approvers, decisions, and feedback before final processing.", businessProblem: "Different business documents required structured approvals involving multiple users and stages before final processing.",
-    requirements: ["Configurable approval matrix", "Approval sequence", "Multiple approvers per level", "Minimum number of approvers", "Approval status", "Rejection handling", "Approval timestamp", "Feedback / comments", "Approved-user tracking"],
-    role: ["Analyzed organizational approval requirements", "Designed configurable approval flows and sequences", "Implemented Odoo models, workflow states, and validation", "Modified access and approval behavior", "Performed functional testing for approval and rejection paths"],
-    solution: ["Built a configurable approval matrix with sequences and multiple approvers at each level.", "Tracked approval status, timestamps, comments, rejection decisions, and approved users.", "Applied reusable server-side validation so the pattern can support several business processes."],
-    technicalAreas: ["Odoo models", "Python", "XML", "ORM", "security / access", "workflow states", "server-side validation"], tags: ["Odoo 14", "Python", "XML", "ORM", "Workflow"], portfolioValue: ["organizational approval rules", "reusable ERP workflows"], featured: true,
-    challenges: ["Supporting multiple approvers at the same level", "Applying minimum approval counts", "Keeping approval status coherent across levels", "Designing approval logic reusable across business processes"], impact: ["Improved control over approval processes", "Improved workflow consistency across approval stages", "Made approval feedback and decisions easier to track"],
+    "slug": "texarium-approval-matrix",
+    "title": "Texarium \u00b7 Hierarchical Approval Matrix",
+    "category": "Workflow / Employees / Security",
+    "summary": "Reusable approval matrices with employee hierarchy, sequential decisions and a central dashboard in Texarium on Odoo 18.",
+    "overview": "Reusable approval matrices with employee hierarchy, sequential decisions and a central dashboard in Texarium on Odoo 18.",
+    "businessProblem": "Documents across business applications need consistent approvals and visible accountability.",
+    "requirements": [
+      "Specific-user and hierarchy approvers",
+      "Sequential stages and minimum approvals",
+      "Decision history and feedback",
+      "Pending approval dashboard"
+    ],
+    "role": [
+      "Build a shared approval engine and application adapters",
+      "Resolve approvers from employee hierarchy",
+      "Enforce access and unchanged-document checks"
+    ],
+    "solution": [
+      "Officer submission routes to Manager then Director.",
+      "Final Purchase approval automatically confirms the Purchase Order."
+    ],
+    "technicalAreas": [
+      "Odoo ORM",
+      "employee hierarchy",
+      "record rules",
+      "approval snapshots"
+    ],
+    "challenges": [
+      "Enforce current-stage approver permissions",
+      "Prevent changed documents from using stale approval"
+    ],
+    "impact": [
+      "Actual UI recording verifies submission and two approvals on P00152."
+    ],
+    "tags": [
+      "Odoo 18 Community",
+      "Texarium",
+      "Python",
+      "PostgreSQL"
+    ],
+    "portfolioValue": [
+      "Odoo ORM",
+      "employee hierarchy",
+      "record rules",
+      "approval snapshots"
+    ],
+    "featured": true,
+    "video": "08-texorium-interactive-approval"
   },
   {
-    slug: "custom-stock-ledger-report", title: "Custom Stock Ledger Report", category: "Inventory / Reporting",
-    summary: "Custom Odoo stock ledger report presenting opening balance, stock movements in and out, and ending balance for operational inventory monitoring.", overview: "A custom inventory report that organizes stock movement information into a ledger view for practical operational monitoring.", businessProblem: "Operations needed a structured report to review stock movement and balances in one clear inventory ledger.",
-    requirements: ["Opening balance", "Stock movement entries", "Stock In and Stock Out values", "Ending balance", "Date and reference information", "Product and location information"],
-    role: ["Designed and developed the custom Stock Ledger Report", "Implemented the report structure for balances and stock movements", "Organized movement data by date, reference, product, and location", "Validated the opening, movement, and ending-balance presentation"],
-    solution: ["Built a custom ledger report that presents opening balance, incoming movement, outgoing movement, and ending balance together.", "Included key operational fields such as date, reference, product, and location to make stock movement easier to review.", "Structured the report for practical inventory monitoring and reporting needs."],
-    technicalAreas: ["inventory reporting", "stock movements", "Odoo ORM", "Python", "PostgreSQL", "report structure"], tags: ["Odoo 14", "Python", "Inventory", "Reporting", "PostgreSQL"], portfolioValue: ["inventory reporting customization", "operational stock monitoring", "business-focused Odoo reporting"], featured: true,
-    challenges: ["Presenting stock movement in a clear ledger format", "Keeping opening, movement, and ending balances easy to review", "Combining operational stock details into one report"], impact: ["Provided a structured view of inventory movement", "Made opening, incoming, outgoing, and ending balances easier to monitor", "Supported operational inventory reporting"],
+    "slug": "texarium-stock-ledger",
+    "title": "Texarium \u00b7 Stock Ledger Report",
+    "category": "Inventory / Reporting",
+    "summary": "Custom Stock Ledger presenting opening balances, movements and ending quantity and value in Texarium on Odoo 18.",
+    "overview": "Custom Stock Ledger presenting opening balances, movements and ending quantity and value in Texarium on Odoo 18.",
+    "businessProblem": "Inventory users need a single report to trace movements and reconcile balances.",
+    "requirements": [
+      "Opening and ending balances",
+      "Product and date filters",
+      "Warehouse and location context",
+      "Movement reference and valuation"
+    ],
+    "role": [
+      "Adapt the Stock Ledger reporting concept to Odoo 18",
+      "Build report filters and presentation",
+      "Validate movement and closing-value calculations"
+    ],
+    "solution": [
+      "The ledger consolidates opening, incoming, outgoing and ending balances.",
+      "The integrated procurement recording verifies eighteen ending units valued at IDR2,250,000."
+    ],
+    "technicalAreas": [
+      "stock.move",
+      "stock.valuation.layer",
+      "Python",
+      "OWL",
+      "PostgreSQL"
+    ],
+    "challenges": [
+      "Respect company and warehouse access",
+      "Keep quantity and valuation understandable"
+    ],
+    "impact": [
+      "Saved report scenario and browser verification demonstrate traceable stock movements."
+    ],
+    "tags": [
+      "Odoo 18 Community",
+      "Texarium",
+      "Python",
+      "PostgreSQL"
+    ],
+    "portfolioValue": [
+      "stock.move",
+      "stock.valuation.layer",
+      "Python",
+      "OWL",
+      "PostgreSQL"
+    ],
+    "featured": true,
+    "video": "03-texorium-stock-ledger"
   },
   {
-    slug: "intercompany-purchase-sales-automation", title: "Intercompany Purchase-to-Sales Automation", category: "Purchase / Sales / Multi-company",
-    summary: "Customized an intercompany workflow where a Purchase Order in one company automatically creates and processes a corresponding Sales Order in another company.", overview: "A multi-company automation that creates and processes a corresponding Sales Order when a related-company Purchase Order meets the required business conditions.", businessProblem: "Transactions between related companies required repetitive Purchase and Sales document creation and consistent field mapping.",
-    requirements: ["Automatic Sales Order creation", "Multi-company context handling", "Vendor/customer mapping", "Field propagation", "Product-category propagation", "Credit-limit/business validation", "Automatic confirmation logic"],
-    role: ["Analyzed the intercompany Purchase-to-Sales flow", "Designed company-context and field-mapping behavior", "Implemented automatic Sales Order creation and validation", "Modified Odoo models and multi-company workflow logic", "Debugged cross-company state behavior"],
-    solution: ["Detected related-company vendor conditions from the Purchase Order flow.", "Created the corresponding Sales Order in the related company with mapped customer, product, category, and business fields.", "Applied business validation and automatic confirmation logic within the correct company context."],
-    technicalAreas: ["purchase.order", "sale.order", "multi-company", "environment/company context", "Odoo ORM", "Python", "business validation"], tags: ["Odoo 14", "Python", "Purchase", "Sales", "Multi-Company"], portfolioValue: ["cross-module automation", "multi-company Odoo knowledge"], featured: true,
-    challenges: ["Managing cross-company environment and context", "Mapping business fields between Purchase and Sales documents", "Ensuring Sales Order state changes correctly", "Validating business rules across companies"], impact: ["Reduced repetitive cross-company data entry", "Improved consistency in intercompany document creation", "Automated the supported Purchase-to-Sales workflow"],
-  },
+    "slug": "texarium-multicompany-budget",
+    "title": "Texarium \u00b7 Multi-company, Branches & Budgets",
+    "category": "Organization / Purchase / Budget",
+    "summary": "Indonesia and Singapore company structures with branches and company-scoped purchasing budgets in Texarium on Odoo 18.",
+    "overview": "Indonesia and Singapore company structures with branches and company-scoped purchasing budgets in Texarium on Odoo 18.",
+    "businessProblem": "Business units need separate company access, approval hierarchies and budget visibility.",
+    "requirements": [
+      "Indonesia and Singapore companies",
+      "Multiple branches in each country",
+      "Company-scoped approvals",
+      "Planned, committed, actual and available budget"
+    ],
+    "role": [
+      "Configure native company and branch structures",
+      "Integrate purchase allocation with budget tracking",
+      "Test access boundaries and financial workflows across eight contexts"
+    ],
+    "solution": [
+      "Purchase commitments remain until billing or explicit commitment closure.",
+      "Stock purchase budget actual comes from posted vendor bills; receipt valuation is not counted twice."
+    ],
+    "technicalAreas": [
+      "res.company",
+      "purchase.order.line",
+      "account.move.line",
+      "company record rules"
+    ],
+    "challenges": [
+      "Preserve company isolation",
+      "Distinguish purchase budget from inventory valuation"
+    ],
+    "impact": [
+      "Saved eight-context budget and finance validations; integrated budget5m, actual2.25m and available2.75m."
+    ],
+    "tags": [
+      "Odoo 18 Community",
+      "Texarium",
+      "Python",
+      "PostgreSQL"
+    ],
+    "portfolioValue": [
+      "res.company",
+      "purchase.order.line",
+      "account.move.line",
+      "company record rules"
+    ],
+    "featured": true,
+    "video": "06-texorium-integrated-procurement"
+  }
 ];
 
 export function getProjectBySlug(slug: string) {
