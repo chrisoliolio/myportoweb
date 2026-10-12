@@ -22,6 +22,11 @@ export default function Home() {
         <Experience />
         <Skills />
         <Projects />
+        <section className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
+          <h2 className="text-3xl font-bold">Texorium ERP · Odoo 18</h2>
+          <p className="mt-3 text-slate-600">Explore custom approvals, Stock Ledger, finance operations and a complete procurement workflow.</p>
+          <a href="/texorium" className="mt-5 inline-block font-semibold text-emerald-700">Watch the ERP walkthroughs →</a>
+        </section>
         <AdditionalOdooExperience />
         <Services />
         <Education />
