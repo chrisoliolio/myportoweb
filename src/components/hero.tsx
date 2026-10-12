@@ -21,7 +21,7 @@ export function Hero() {
         <div className="overflow-hidden rounded-2xl border border-white/15 bg-[#111827] shadow-2xl shadow-indigo-950/40">
           <div className="flex items-center gap-2 border-b border-white/10 px-5 py-4"><span className="size-2.5 rounded-full bg-rose-400/80" /><span className="size-2.5 rounded-full bg-amber-300/80" /><span className="size-2.5 rounded-full bg-teal-400/80" /><span className="ml-3 font-mono text-xs text-slate-500">developer.py</span></div>
           <div className="overflow-x-auto p-6 font-mono text-sm leading-8 sm:p-8">
-            <p className="text-slate-500"># Built around real business needs</p>
+            <p className="text-slate-500"># Personal project / business workflows</p>
             <p><span className="text-violet-300">class</span> <span className="text-sky-300">ERPDeveloper</span>:</p>
             <div className="ml-5 text-slate-300"><p>name = <span className="text-teal-300">&quot;Christian Oliver&quot;</span></p><p>platform = <span className="text-teal-300">&quot;Odoo 18 Community&quot;</span></p><p>project = <span className="text-teal-300">&quot;Texarium ERP&quot;</span></p><p className="mt-4 text-slate-500"># From request to reconciliation</p><p>focus = [</p><div className="ml-5 text-amber-200"><p>&quot;Approval workflows&quot;,</p><p>&quot;Inventory &amp; finance&quot;,</p><p>&quot;Reporting &amp; integrations&quot;</p></div><p>]</p></div>
           </div>

@@ -19,6 +19,7 @@ export default function Home() {
         <Hero />
         <Projects />
         <section className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
+          <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-indigo-600">Personal Project</p>
           <h2 className="text-3xl font-bold">Texarium ERP · Odoo 18</h2>
           <p className="mt-3 text-slate-600">Explore custom approvals, Stock Ledger, finance operations and a complete procurement workflow.</p>
           <a href="/texorium" className="mt-5 inline-block font-semibold text-indigo-600">Watch the ERP walkthroughs →</a>

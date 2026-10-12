@@ -16,6 +16,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <span className="absolute bottom-3 right-3 rounded-lg bg-slate-950/85 px-3 py-1.5 text-xs font-medium text-white">View implementation ↗</span>
       </Link> : <ProjectVisual index={index} />}
       <div className="flex flex-1 flex-col px-1 pb-1 pt-6">
+        <span className="mb-3 self-start rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">Personal Project · Odoo 18</span>
         <p className="font-mono text-xs font-bold tracking-[0.13em] text-indigo-600 uppercase">{project.category}</p>
         <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.035em] text-slate-900">{project.title}</h3>
         <p className="mt-4 text-sm leading-6 text-slate-900/65">{project.summary}</p>

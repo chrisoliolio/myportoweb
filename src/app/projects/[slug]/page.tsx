@@ -22,6 +22,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="border-y border-slate-900/10 bg-slate-950 py-14 text-white sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[1.1fr_.9fr] lg:items-center lg:px-8">
           <div>
+            <p className="mb-5 inline-block rounded-full border border-white/20 px-3 py-1.5 text-xs font-medium text-violet-200">Personal Project · Odoo 18 Community</p>
             <p className="font-mono text-xs font-bold tracking-[0.16em] text-violet-300 uppercase">{project.category}</p>
             <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.04] tracking-[-0.05em] sm:text-5xl lg:text-6xl">{project.title}</h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-white/72 sm:text-lg">{project.summary}</p>
@@ -42,7 +43,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>}
         <section className="grid gap-9 border-b border-slate-900/10 pb-14 lg:grid-cols-[.78fr_1.22fr]" aria-labelledby="overview-title">
           <div><SectionLabel number="01" title="Overview" /><h2 id="overview-title" className="mt-4 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">The project context.</h2></div>
-          <div className="space-y-6"><p className="text-lg leading-8 text-slate-900/78">{project.overview}</p><div className="rounded-2xl border border-slate-900/10 bg-white p-6"><p className="font-mono text-xs font-bold tracking-[0.14em] text-indigo-600 uppercase">Business problem</p><p className="mt-3 leading-7 text-slate-900/70">{project.businessProblem}</p></div></div>
+          <div className="space-y-6"><p className="text-lg leading-8 text-slate-900/78">{project.overview}</p><p className="text-sm leading-7 text-slate-600">Part of Texarium ERP, an independent learning and portfolio project developed and tested locally.</p><div className="rounded-2xl border border-slate-900/10 bg-white p-6"><p className="font-mono text-xs font-bold tracking-[0.14em] text-indigo-600 uppercase">Business problem</p><p className="mt-3 leading-7 text-slate-900/70">{project.businessProblem}</p></div></div>
         </section>
 
         <section className="grid gap-9 border-b border-slate-900/10 py-14 lg:grid-cols-[.78fr_1.22fr]" aria-labelledby="requirements-title">
