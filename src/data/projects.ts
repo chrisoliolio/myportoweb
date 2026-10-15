@@ -49,7 +49,7 @@ export const projects: Project[] = [
       "multi-company"
     ],
     "featured": true,
-    "video": "07-texorium-finance"
+    "video": "07-texarium-finance"
   },
   {
     "slug": "texarium-operational-dashboards",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
       "Odoo ORM"
     ],
     "featured": true,
-    "video": "02-texorium-dashboards"
+    "video": "02-texarium-dashboards"
   },
   {
     "slug": "texarium-inventory-quality-control",
@@ -151,7 +151,7 @@ export const projects: Project[] = [
       "quality inspection"
     ],
     "featured": true,
-    "video": "06-texorium-integrated-procurement"
+    "video": "06-texarium-integrated-procurement"
   },
   {
     "slug": "texarium-approval-matrix",
@@ -201,7 +201,7 @@ export const projects: Project[] = [
       "approval snapshots"
     ],
     "featured": true,
-    "video": "08-texorium-interactive-approval"
+    "video": "08-texarium-interactive-approval"
   },
   {
     "slug": "texarium-stock-ledger",
@@ -253,7 +253,7 @@ export const projects: Project[] = [
       "PostgreSQL"
     ],
     "featured": true,
-    "video": "03-texorium-stock-ledger"
+    "video": "03-texarium-stock-ledger"
   },
   {
     "slug": "texarium-multicompany-budget",
@@ -303,7 +303,7 @@ export const projects: Project[] = [
       "company record rules"
     ],
     "featured": true,
-    "video": "06-texorium-integrated-procurement"
+    "video": "06-texarium-integrated-procurement"
   }
 ];
 

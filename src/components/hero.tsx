@@ -12,7 +12,7 @@ export function Hero() {
         <p className="mt-7 max-w-xl text-lg leading-8 text-slate-400">Odoo / ERP developer building connected workflows, custom modules and tools that make complex operations easier to manage.</p>
         <div className="mt-9 flex flex-wrap gap-3">
           <Link href="#projects" className="rounded-xl bg-indigo-500 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-indigo-400">Explore my work ↗</Link>
-          <Link href="/texorium" className="rounded-xl border border-white/20 px-5 py-3.5 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Watch product videos ▷</Link>
+          <Link href="/texarium" className="rounded-xl border border-white/20 px-5 py-3.5 text-sm font-semibold text-slate-200 transition hover:bg-white/10">Watch product videos ▷</Link>
           <Link href="/cv.pdf" className="px-2 py-3.5 text-sm font-medium text-slate-400 transition hover:text-white">Download CV ↓</Link>
         </div>
         <div className="mt-10 flex flex-wrap gap-5 font-mono text-xs text-slate-400"><span>Python</span><span>PostgreSQL</span><span>Odoo 18</span><span>OWL / JavaScript</span></div>

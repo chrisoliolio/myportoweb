@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      { source: "/texorium", destination: "/texarium", permanent: true },
       {
             "source": "/projects/multi-currency-payment-reconciliation",
             "destination": "/projects/texarium-finance-operations",

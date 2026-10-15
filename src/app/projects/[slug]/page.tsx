@@ -37,9 +37,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <h2 className="mb-5 text-3xl font-semibold">Texarium on Odoo 18 Community</h2>
           <video controls playsInline preload="none" className="aspect-video w-full rounded-2xl bg-slate-950" aria-label={project.title}>
             <source src={`/videos/${project.video}.mp4`} type="video/mp4" />
-            {project.video === "08-texorium-interactive-approval" && <track kind="captions" src="/videos/08-texorium-interactive-approval.vtt" srcLang="id" label="Bahasa Indonesia" default />}
+            {project.video === "08-texarium-interactive-approval" && <track kind="captions" src="/videos/08-texarium-interactive-approval.vtt" srcLang="id" label="Bahasa Indonesia" default />}
           </video>
-          <Link href="/texorium" className="mt-4 inline-block text-indigo-600">View all Texarium videos →</Link>
+          <Link href="/texarium" className="mt-4 inline-block text-indigo-600">View all Texarium videos →</Link>
         </section>}
         <section className="grid gap-9 border-b border-slate-900/10 pb-14 lg:grid-cols-[.78fr_1.22fr]" aria-labelledby="overview-title">
           <div><SectionLabel number="01" title="Overview" /><h2 id="overview-title" className="mt-4 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">The project context.</h2></div>

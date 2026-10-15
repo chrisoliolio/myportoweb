@@ -7,6 +7,8 @@ export const experiences: Experience[] = [
     highlights: [
       "Work with Python, XML, QWeb, JavaScript, PostgreSQL, and the Odoo ORM to deliver maintainable modules and resolve production issues.",
       "Support accounting, inventory, purchasing, sales, reporting, and multi-company processes.",
+      "Customize HR overtime approval editing and payslip report layouts.",
+      "Contribute targeted fixes to MRP production-plan views and customize construction job order reports with signatures.",
     ],
     technologies: ["Odoo 14", "Python", "Odoo ORM", "PostgreSQL", "XML / QWeb", "JavaScript"],
   },
