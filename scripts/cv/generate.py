@@ -44,7 +44,7 @@ def footer(canvas, doc):
 
 p('Christian Oliver', 'name')
 p('Odoo / ERP Developer', 'subtitle')
-p('East Jakarta, Indonesia | +6285880036506 | <link href="mailto:oliolio343@gmail.com">oliolio343@gmail.com</link><br/><link href="https://www.linkedin.com/in/christian-oliver-04914bb6">linkedin.com/in/christian-oliver-04914bb6</link>', 'small')
+p('East Jakarta, Indonesia | +6285880036506 | <link href="mailto:oliolio343@gmail.com">oliolio343@gmail.com</link><br/><link href="https://www.linkedin.com/in/christian-oliver-04914bb6">linkedin.com/in/christian-oliver-04914bb6</link><br/>Portfolio: <link href="https://chrisoliver.online/">chrisoliver.online</link>', 'small')
 section('Profile')
 p('Odoo developer with professional experience customizing and maintaining Odoo 14 across Accounting, Inventory, Purchase, Sales, RMA, Construction reporting and HR. Work with Python, PostgreSQL, XML, QWeb, JavaScript and the Odoo ORM. Develop Texarium ERP as a personal Odoo 18 Community project focused on approval governance, connected workflows and company-branch controls.')
 section('Professional experience')
