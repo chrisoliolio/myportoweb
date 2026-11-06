@@ -13,6 +13,12 @@ export const education: Education[] = [{ institution: "Universitas Mercu Buana",
 
 export const additionalOdooExperience = [
   {
+    title: "RMA & return management",
+    featured: true,
+    description: "Professional Odoo 14 customization supporting return management and inventory traceability.",
+    items: ["RMA & Return Management", "Return-related stock workflow customization"],
+  },
+  {
     title: "Accounting & finance",
     description: "Customization and fixes for financial documents, valuation, and tax handling.",
     items: ["Exchange Rate-Based Stock Valuation", "Anglo-Saxon Accounting & Invoice Amount Due Fix", "Loan Accounting & Reclassification", "Down Payment & VAT Handling", "FIFO Valuation Fix"],
@@ -20,16 +26,18 @@ export const additionalOdooExperience = [
   {
     title: "Inventory, purchase & sales",
     description: "Operational controls across stock movements, purchasing, and product selection.",
-    items: ["Picking & Picking Approval", "Stock Quant Reservation Override", "Lot Assignment from Purchase", "RMA & Return Management", "Vendor Pricelist Customization", "Tax-Aware Purchase Pricing", "Product Category-Based Purchase Filtering", "RFQ & PO Dynamic Numbering", "Sales Product Filtering", "Product Part Number Search", "Product Category Access Control"],
+    items: ["Picking & Picking Approval", "Stock Quant Reservation Override", "Lot Assignment from Purchase", "Vendor Pricelist Customization", "Tax-Aware Purchase Pricing", "Product Category-Based Purchase Filtering", "RFQ & PO Dynamic Numbering", "Sales Product Filtering", "Product Part Number Search", "Product Category Access Control"],
   },
   {
-    title: "HR & payroll reporting",
+    title: "Human Resources & payroll reports",
+    featured: true,
     description: "HR workflow customization and payslip report layouts.",
     items: ["HR Assessment & Psikotest Workflow", "HR Time-Off Reporting & Views", "Overtime Approval Editing", "Payslip Report Layouts"],
   },
   {
-    title: "Manufacturing & construction",
-    description: "Targeted fixes to production-plan views and reporting for construction and job orders.",
+    title: "Construction & job order reports",
+    featured: true,
+    description: "Customized construction/project job order reports and signature layouts, alongside targeted production-plan view fixes.",
     items: ["MRP Production Plan View Fixes", "Construction / Project Reporting", "Job Order Reports & Signatures", "Work Order Management"],
   },
   {

@@ -3,7 +3,6 @@ import { profile } from "@/data/profile";
 const contactLinks = [
   { label: "Email", href: profile.contacts.email ? `mailto:${profile.contacts.email}` : null, value: profile.contacts.email },
   { label: "LinkedIn", href: profile.contacts.linkedIn, value: profile.contacts.linkedIn },
-  { label: "GitHub", href: profile.contacts.github, value: profile.contacts.github },
   { label: "WhatsApp", href: profile.contacts.whatsapp, value: profile.contacts.phone },
 ].filter((contact): contact is { label: string; href: string; value: string } => Boolean(contact.href && contact.value));
 

@@ -6,7 +6,7 @@ const navigation = [
 ];
 
 const socialLinks = [
-  { label: "LinkedIn", href: profile.contacts.linkedIn }, { label: "GitHub", href: profile.contacts.github },
+  { label: "LinkedIn", href: profile.contacts.linkedIn },
 ].filter((social): social is { label: string; href: string } => Boolean(social.href));
 
 export function Footer() {

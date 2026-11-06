@@ -2,39 +2,40 @@ import type { Project } from "@/types/portfolio";
 
 export const projects: Project[] = [
   {
-    "slug": "texarium-finance-operations",
-    "title": "Texarium \u00b7 Finance Operations & Bank Reconciliation",
-    "category": "Accounting / Finance",
-    "summary": "Cash advances, settlement, petty cash, expense reimbursement and bank reconciliation in Texarium, built on Odoo 18 Community.",
-    "overview": "Cash advances, settlement, petty cash, expense reimbursement and bank reconciliation in Texarium, built on Odoo 18 Community.",
-    "businessProblem": "Finance teams need controlled disbursements, traceable settlements and bank matching.",
+    "slug": "texarium-approval-matrix",
+    "title": "Texarium · Approval & Document Governance",
+    "category": "Workflow / Purchase / Security",
+    "summary": "Configurable approver pools, rejection reasons and traceable PO revisions on Odoo 18 Community.",
+    "overview": "A shared approval engine for controlled business documents, with separate approval requests and a retained history of decisions.",
+    "businessProblem": "Documents across business applications need consistent approvals and visible accountability.",
     "requirements": [
-      "Cash advance and full settlement",
-      "Petty cash funding and vouchers",
-      "Hierarchical approval",
-      "Native payments and bank matching"
+      "By User or By Hierarchy approver pools",
+      "Configurable minimum approvals per stage",
+      "Rejection reason and resubmission history",
+      "Linked PO revisions with fresh approval"
     ],
     "role": [
-      "Separate finance models and integrate approval controls",
-      "Connect cash documents to native payments",
-      "Validate balanced journals and reconciled bank statement lines"
+      "Build a shared approval engine and application adapters",
+      "Resolve approvers from employee hierarchy",
+      "Enforce access and unchanged-document checks"
     ],
     "solution": [
-      "Dedicated transfer and outstanding accounts connect source documents to native bank payments.",
-      "Saved finance scenarios cover eight companies and branches."
+      "Several eligible users can share a stage. With a minimum of one, the first valid approval completes that stage; separate stages still run in sequence.",
+      "Rejected documents can return to Draft for correction while retaining earlier decisions.",
+      "A cancelled PO that was previously confirmed can produce a linked /R1 revision. The original remains cancelled and the new version needs approval."
     ],
     "technicalAreas": [
-      "account.payment",
-      "account.move",
-      "hr.expense.sheet",
-      "multi-company"
+      "Odoo ORM",
+      "employee hierarchy",
+      "record rules",
+      "approval snapshots"
     ],
     "challenges": [
-      "Prevent duplicate payments",
-      "Preserve approval snapshots and company boundaries"
+      "Prevent self-approval, duplicate votes and stale approvals after a document changes",
+      "Retain version and decision history without reusing receipt or invoice links"
     ],
     "impact": [
-      "Persisted and verified forty reconciled payments across eight company and branch contexts."
+      "Local demo records show approved PO and PR requests, a rejected PR with feedback, and an approved P00004/R1 linked to its original PO."
     ],
     "tags": [
       "Odoo 18 Community",
@@ -43,17 +44,71 @@ export const projects: Project[] = [
       "PostgreSQL"
     ],
     "portfolioValue": [
-      "account.payment",
-      "account.move",
-      "hr.expense.sheet",
-      "multi-company"
+      "Odoo ORM",
+      "employee hierarchy",
+      "record rules",
+      "approval snapshots"
     ],
     "featured": true,
-    "video": "07-texarium-finance"
+    "image": "/images/projects/approval-governance.png",
+    "imageCaption": "Local demo, November 2026: Daniel completes a By Hierarchy stage with a minimum of one approval. Maya remains an eligible candidate, not a required second approver."
+  },
+  {
+    "slug": "texarium-multicompany-budget",
+    "title": "Texarium · Company–Branch Access Controls",
+    "category": "Organization / Security / UI",
+    "summary": "Separate Company and Branch selectors, permission checks and branch defaults for a two-country ERP workspace.",
+    "overview": "Custom Texarium branches separate operational units from legal companies. Users select an allowed working scope while server checks preserve access boundaries.",
+    "businessProblem": "Users working across companies and branches need clear context selection without gaining access to unauthorized business units.",
+    "requirements": [
+      "Two legal companies: Indonesia and Singapore",
+      "Six custom branches with associated warehouses",
+      "Allowed Company–Branch–Warehouse settings per user",
+      "Multi-select scope with Apply, Reset and branch defaults"
+    ],
+    "role": [
+      "Implement custom branch ownership and user scope validation",
+      "Connect the native company service to a separate Branch selector",
+      "Verify branch-aware search, aggregates and defaults"
+    ],
+    "solution": [
+      "Indonesia contains Jakarta, Surabaya and Bali; Singapore contains Central, East and West.",
+      "The Company selector lives in the sidebar; the Branch selector groups allowed branches under selected companies.",
+      "Branch context narrows supported branch-aware models. Models without branch ownership retain their existing access rules; single-company dashboards retain the primary company currency."
+    ],
+    "technicalAreas": [
+      "res.company",
+      "texarium.branch",
+      "stock.warehouse",
+      "Odoo context",
+      "OWL services",
+      "record rules"
+    ],
+    "challenges": [
+      "Keep browser selections within server-authorized scope",
+      "Avoid mixing IDR and SGD totals or implying every model is branch-aware"
+    ],
+    "impact": [
+      "Selector and scope regression: 21 tests passed. Browser checks covered company switching, branch subsets, persistence and document defaults."
+    ],
+    "tags": [
+      "Odoo 18 Community",
+      "Texarium",
+      "Python",
+      "PostgreSQL"
+    ],
+    "portfolioValue": [
+      "Multi-company security",
+      "Server-side scope validation",
+      "OWL interface integration"
+    ],
+    "featured": true,
+    "image": "/images/projects/company-branch.png",
+    "imageCaption": "Local demo, November 2026: six branches grouped under Texarium Indonesia and Texarium Singapore. The purchase dashboard behind the selector is empty in this setup."
   },
   {
     "slug": "texarium-operational-dashboards",
-    "title": "Texarium \u00b7 Purchase & Inventory Dashboards",
+    "title": "Texarium · ERP Workspace & Operational Dashboards",
     "category": "Purchase / Inventory / UI",
     "summary": "Operational dashboards and a branded workspace for Texarium on Odoo 18 Community.",
     "overview": "Operational dashboards and a branded workspace for Texarium on Odoo 18 Community.",
@@ -85,7 +140,7 @@ export const projects: Project[] = [
       "Support long pages and shared navigation"
     ],
     "impact": [
-      "Recorded dashboard walkthroughs and validated browser rendering."
+      "Local browser checks cover dashboard rendering and navigation; the workspace includes a custom login and shared navigation."
     ],
     "tags": [
       "Odoo 18 Community",
@@ -101,11 +156,63 @@ export const projects: Project[] = [
       "Odoo ORM"
     ],
     "featured": true,
-    "video": "02-texarium-dashboards"
+    "image": "/images/projects/company-branch.png",
+    "imageCaption": "Purchase workspace, November 2026, with the Branch selector open. This setup has no purchase transactions; populated charts are not shown here."
+  },
+  {
+    "slug": "texarium-finance-operations",
+    "title": "Texarium · Finance Operations & Bank Reconciliation",
+    "category": "Accounting / Finance",
+    "summary": "Cash advances, settlement, petty cash, expense reimbursement and bank reconciliation built on Odoo 18 Community.",
+    "overview": "Cash advances, settlement, petty cash, expense reimbursement and bank reconciliation in Texarium, built on Odoo 18 Community.",
+    "businessProblem": "Finance teams need controlled disbursements, traceable settlements and bank matching.",
+    "requirements": [
+      "Cash advance and full settlement",
+      "Petty cash funding and vouchers",
+      "Hierarchical approval",
+      "Native payments and bank matching"
+    ],
+    "role": [
+      "Separate finance models and integrate approval controls",
+      "Connect cash documents to native payments",
+      "Validate balanced journals and reconciled bank statement lines"
+    ],
+    "solution": [
+      "Dedicated transfer and outstanding accounts connect source documents to native bank payments.",
+      "Local finance scenarios exercise company-scoped payments and settlement."
+    ],
+    "technicalAreas": [
+      "account.payment",
+      "account.move",
+      "hr.expense.sheet",
+      "multi-company"
+    ],
+    "challenges": [
+      "Prevent duplicate payments",
+      "Preserve approval snapshots and company boundaries"
+    ],
+    "impact": [
+      "Local finance scenarios demonstrate linked source documents, payments and bank reconciliation."
+    ],
+    "tags": [
+      "Odoo 18 Community",
+      "Texarium",
+      "Python",
+      "PostgreSQL"
+    ],
+    "portfolioValue": [
+      "account.payment",
+      "account.move",
+      "hr.expense.sheet",
+      "multi-company"
+    ],
+    "featured": true,
+    "image": "/images/projects/finance-current-20261106.jpg",
+    "imageCaption": "Current Texarium UI, 6 November 2026: vendor payment entry with fictional preview values. This form was not saved, posted or reconciled; it illustrates the current interface rather than a completed bank reconciliation."
   },
   {
     "slug": "texarium-inventory-quality-control",
-    "title": "Texarium \u00b7 Inventory & Quality Control",
+    "title": "Texarium · Inventory & Quality Control",
     "category": "Inventory / Quality / Valuation",
     "summary": "Controlled receipts, quality inspection, stock release, supplier returns and valuation in Texarium on Odoo 18.",
     "overview": "Controlled receipts, quality inspection, stock release, supplier returns and valuation in Texarium on Odoo 18.",
@@ -122,7 +229,7 @@ export const projects: Project[] = [
       "Validate quantity and valuation through accounting"
     ],
     "solution": [
-      "The recorded procurement scenario receives twenty units, releases eighteen and returns two.",
+      "An earlier local procurement validation received twenty units, released eighteen and returned two.",
       "Native stock valuation remains connected to posted accounting entries."
     ],
     "technicalAreas": [
@@ -136,7 +243,7 @@ export const projects: Project[] = [
       "Avoid counting receipt valuation again as purchase budget actual"
     ],
     "impact": [
-      "Verified ending quantity of eighteen and inventory value of IDR2,250,000."
+      "Earlier local validation recorded eighteen ending units and an inventory value of IDR 2,250,000; the current screenshot shows a separate, unprocessed receipt."
     ],
     "tags": [
       "Odoo 18 Community",
@@ -151,61 +258,12 @@ export const projects: Project[] = [
       "quality inspection"
     ],
     "featured": true,
-    "video": "06-texarium-integrated-procurement"
-  },
-  {
-    "slug": "texarium-approval-matrix",
-    "title": "Texarium \u00b7 Hierarchical Approval Matrix",
-    "category": "Workflow / Employees / Security",
-    "summary": "Reusable approval matrices with employee hierarchy, sequential decisions and a central dashboard in Texarium on Odoo 18.",
-    "overview": "Reusable approval matrices with employee hierarchy, sequential decisions and a central dashboard in Texarium on Odoo 18.",
-    "businessProblem": "Documents across business applications need consistent approvals and visible accountability.",
-    "requirements": [
-      "Specific-user and hierarchy approvers",
-      "Sequential stages and minimum approvals",
-      "Decision history and feedback",
-      "Pending approval dashboard"
-    ],
-    "role": [
-      "Build a shared approval engine and application adapters",
-      "Resolve approvers from employee hierarchy",
-      "Enforce access and unchanged-document checks"
-    ],
-    "solution": [
-      "Officer submission routes to Manager then Director.",
-      "Final Purchase approval automatically confirms the Purchase Order."
-    ],
-    "technicalAreas": [
-      "Odoo ORM",
-      "employee hierarchy",
-      "record rules",
-      "approval snapshots"
-    ],
-    "challenges": [
-      "Enforce current-stage approver permissions",
-      "Prevent changed documents from using stale approval"
-    ],
-    "impact": [
-      "Actual UI recording verifies submission and two approvals on P00152."
-    ],
-    "tags": [
-      "Odoo 18 Community",
-      "Texarium",
-      "Python",
-      "PostgreSQL"
-    ],
-    "portfolioValue": [
-      "Odoo ORM",
-      "employee hierarchy",
-      "record rules",
-      "approval snapshots"
-    ],
-    "featured": true,
-    "video": "08-texarium-interactive-approval"
+    "image": "/images/projects/inventory-current-20261106.jpg",
+    "imageCaption": "Current Texarium UI, 6 November 2026: receipt JKT/IN/00006 linked to P00004/R1, showing grouped fields and ten units awaiting processing. Its status is Ready; this capture does not show completed quality inspection or stock release."
   },
   {
     "slug": "texarium-stock-ledger",
-    "title": "Texarium \u00b7 Stock Ledger Report",
+    "title": "Texarium · Stock Ledger Report",
     "category": "Inventory / Reporting",
     "summary": "Custom Stock Ledger presenting opening balances, movements and ending quantity and value in Texarium on Odoo 18.",
     "overview": "Custom Stock Ledger presenting opening balances, movements and ending quantity and value in Texarium on Odoo 18.",
@@ -223,7 +281,7 @@ export const projects: Project[] = [
     ],
     "solution": [
       "The ledger consolidates opening, incoming, outgoing and ending balances.",
-      "The integrated procurement recording verifies eighteen ending units valued at IDR2,250,000."
+      "An earlier local procurement validation demonstrated eighteen ending units valued at IDR 2,250,000. The current screenshot comes from a separate setup with no completed stock movements."
     ],
     "technicalAreas": [
       "stock.move",
@@ -253,57 +311,8 @@ export const projects: Project[] = [
       "PostgreSQL"
     ],
     "featured": true,
-    "video": "03-texarium-stock-ledger"
-  },
-  {
-    "slug": "texarium-multicompany-budget",
-    "title": "Texarium \u00b7 Multi-company, Branches & Budgets",
-    "category": "Organization / Purchase / Budget",
-    "summary": "Indonesia and Singapore company structures with branches and company-scoped purchasing budgets in Texarium on Odoo 18.",
-    "overview": "Indonesia and Singapore company structures with branches and company-scoped purchasing budgets in Texarium on Odoo 18.",
-    "businessProblem": "Business units need separate company access, approval hierarchies and budget visibility.",
-    "requirements": [
-      "Indonesia and Singapore companies",
-      "Multiple branches in each country",
-      "Company-scoped approvals",
-      "Planned, committed, actual and available budget"
-    ],
-    "role": [
-      "Configure native company and branch structures",
-      "Integrate purchase allocation with budget tracking",
-      "Test access boundaries and financial workflows across eight contexts"
-    ],
-    "solution": [
-      "Purchase commitments remain until billing or explicit commitment closure.",
-      "Stock purchase budget actual comes from posted vendor bills; receipt valuation is not counted twice."
-    ],
-    "technicalAreas": [
-      "res.company",
-      "purchase.order.line",
-      "account.move.line",
-      "company record rules"
-    ],
-    "challenges": [
-      "Preserve company isolation",
-      "Distinguish purchase budget from inventory valuation"
-    ],
-    "impact": [
-      "Saved eight-context budget and finance validations; integrated budget5m, actual2.25m and available2.75m."
-    ],
-    "tags": [
-      "Odoo 18 Community",
-      "Texarium",
-      "Python",
-      "PostgreSQL"
-    ],
-    "portfolioValue": [
-      "res.company",
-      "purchase.order.line",
-      "account.move.line",
-      "company record rules"
-    ],
-    "featured": true,
-    "video": "06-texarium-integrated-procurement"
+    "image": "/images/projects/stock-ledger-current-20261106.jpg",
+    "imageCaption": "Current Texarium UI, 6 November 2026: Stock Ledger filtered to AGY Industrial Fastener, Jakarta Warehouse and Texarium Indonesia for 1–6 November. No completed stock movements exist in this demo setup, so balances and transaction counts are zero."
   }
 ];
 

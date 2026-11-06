@@ -30,7 +30,8 @@ export interface ProfessionalHighlight { title: string; description: string; }
 export interface Education { institution: string; degree: string; period: string; }
 export interface Service { slug: string; title: string; description: string; }
 export interface Project {
-  video?: string;
+  image?: string;
+  imageCaption?: string;
   slug: string;
   title: string;
   category: string;

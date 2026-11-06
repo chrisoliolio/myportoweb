@@ -1,20 +1,29 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Navbar } from "@/components/navbar";
 import { getProjectBySlug, projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ProjectVisual } from "@/components/project-visual";
 
 interface ProjectPageProps { params: Promise<{ slug: string }>; }
 
 export function generateStaticParams() { return projects.map(({ slug }) => ({ slug })); }
 
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  return { title: project ? `${project.title} | Christian Oliver` : "Project not found | Christian Oliver", description: project?.summary };
+}
+
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
-  const projectIndex = projects.findIndex((item) => item.slug === project.slug);
 
   return (
-    <main className="min-h-screen bg-[#f6f7fb] text-slate-900" aria-label={project.title}>
+    <>
+    <Navbar />
+    <main className="portfolio-document min-h-screen" aria-label={project.title}>
       <div className="mx-auto max-w-6xl px-6 py-8 lg:px-8">
         <Link href="/#projects" className="font-mono text-xs font-bold tracking-[0.13em] text-indigo-600 uppercase">← Back to featured work</Link>
       </div>
@@ -28,22 +37,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p className="mt-6 max-w-2xl text-base leading-7 text-white/72 sm:text-lg">{project.summary}</p>
             <div className="mt-7 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-md bg-white/10 px-2.5 py-1.5 text-xs font-medium text-white/85">{tag}</span>)}</div>
           </div>
-          <ProjectVisual index={projectIndex} />
+          <aside className="rounded-2xl border border-white/20 p-6 sm:p-8" aria-label="Design priorities">
+            <p className="font-mono text-xs tracking-widest text-violet-300 uppercase">Design priorities</p>
+            <ul className="mt-6 space-y-5 text-base leading-7 text-white/80">{project.requirements.slice(0, 3).map(item => <li key={item} className="border-b border-white/10 pb-4">{item}</li>)}</ul>
+            <p className="mt-6 text-sm text-white/60">Personal implementation · Local demo environment</p>
+          </aside>
         </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24 lg:px-8">
-        {project.video && <section className="mb-14" aria-label="Texarium Odoo 18 video">
-          <h2 className="mb-5 text-3xl font-semibold">Texarium on Odoo 18 Community</h2>
-          <video controls playsInline preload="none" className="aspect-video w-full rounded-2xl bg-slate-950" aria-label={project.title}>
-            <source src={`/videos/${project.video}.mp4`} type="video/mp4" />
-            {project.video === "08-texarium-interactive-approval" && <track kind="captions" src="/videos/08-texarium-interactive-approval.vtt" srcLang="id" label="Bahasa Indonesia" default />}
-          </video>
-          <Link href="/texarium" className="mt-4 inline-block text-indigo-600">View all Texarium videos →</Link>
-        </section>}
+        {project.image && <figure className="mb-14">
+          <a href={project.image} target="_blank" rel="noreferrer" className="block rounded-2xl border border-slate-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-600" aria-label={`Open full screenshot: ${project.title}`}>
+            <Image src={project.image} alt={`${project.title} — local application screenshot`} width={1920} height={1080} sizes="(max-width: 1152px) 100vw, 1088px" className="h-auto w-full rounded-2xl" />
+          </a>
+          <figcaption className="mt-4 text-sm leading-6 text-slate-600">{project.imageCaption} Select the image to inspect it at full size.</figcaption>
+        </figure>}
         <section className="grid gap-9 border-b border-slate-900/10 pb-14 lg:grid-cols-[.78fr_1.22fr]" aria-labelledby="overview-title">
           <div><SectionLabel number="01" title="Overview" /><h2 id="overview-title" className="mt-4 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">The project context.</h2></div>
-          <div className="space-y-6"><p className="text-lg leading-8 text-slate-900/78">{project.overview}</p><p className="text-sm leading-7 text-slate-600">Part of Texarium ERP, an independent learning and portfolio project developed and tested locally.</p><div className="rounded-2xl border border-slate-900/10 bg-white p-6"><p className="font-mono text-xs font-bold tracking-[0.14em] text-indigo-600 uppercase">Business problem</p><p className="mt-3 leading-7 text-slate-900/70">{project.businessProblem}</p></div></div>
+          <div className="space-y-6"><p className="text-lg leading-8 text-slate-900/78">{project.overview}</p><p className="text-sm leading-7 text-slate-600">Part of Texarium ERP, a personal learning and portfolio project developed and tested locally.</p><div className="rounded-2xl border border-slate-900/10 bg-white p-6"><p className="font-mono text-xs font-bold tracking-[0.14em] text-indigo-600 uppercase">Business problem</p><p className="mt-3 leading-7 text-slate-900/70">{project.businessProblem}</p></div></div>
         </section>
 
         <section className="grid gap-9 border-b border-slate-900/10 py-14 lg:grid-cols-[.78fr_1.22fr]" aria-labelledby="requirements-title">
@@ -70,10 +81,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <SectionLabel number="08" title="Technologies & modules" />
           <h2 id="technologies-title" className="mt-4 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">Technology focus.</h2>
           <div className="mt-7 flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">{tag}</span>)}</div>
+          <Link href="/#contact" className="mr-4 mt-12 inline-flex rounded-full border border-indigo-600 px-5 py-3 text-sm font-semibold text-indigo-600">Discuss an Odoo role or project →</Link>
           <Link href="/#projects" className="mt-12 inline-flex rounded-full bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-500">Back to Projects</Link>
         </section>
       </div>
     </main>
+    </>
   );
 }
 
